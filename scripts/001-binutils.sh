@@ -72,6 +72,7 @@ fi
     --target="$TARGET" \
     --disable-nls \
     --disable-build-warnings \
+    --disable-gdb \
     $HOST_OPTS \
     $TARG_XTRA_OPTS
 
