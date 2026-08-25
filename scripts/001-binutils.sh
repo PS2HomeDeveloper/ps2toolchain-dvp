@@ -60,13 +60,19 @@ for TARGET in "dvp"; do
   mkdir "build-$TARGET"
   cd "build-$TARGET"
 
-  ## Configure the build.
+  HOST_OPTS=""
+if [ -n "$CONFIGURE_HOST" ]; then
+  HOST_OPTS="--host=$CONFIGURE_HOST"
+fi
+
+## Configure the build.
   ../configure \
     --quiet \
     --prefix="$PS2DEV/$TARGET_ALIAS" \
     --target="$TARGET" \
     --disable-nls \
     --disable-build-warnings \
+    $HOST_OPTS \
     $TARG_XTRA_OPTS
 
   ## Compile and install.
