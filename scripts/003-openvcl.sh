@@ -37,6 +37,7 @@ PROC_NR=$(getconf _NPROCESSORS_ONLN)
 cmake -S "$REPO_FOLDER" -B "$REPO_FOLDER/build" \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_INSTALL_PREFIX="$PS2DEV" \
+  -DCMAKE_EXE_LINKER_FLAGS="-static-libstdc++" \
   -DBUILD_TESTING=OFF
 cmake --build "$REPO_FOLDER/build" -j "$PROC_NR"
 cmake --install "$REPO_FOLDER/build"
